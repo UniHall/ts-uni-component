@@ -1,0 +1,31 @@
+$font-size: 14px;
+.el-table .common-table-cell {
+  padding: 3px;
+  line-height: 25px;
+  font-size: $font-size;
+}
+.el-table .common-header-cell {
+  background: #EDF1F5;
+  color: #303133;
+  padding: 3px;
+  line-height: 25px;
+  font-size: $font-size;
+}
+
+.el-table .table-cell {
+  text-align: center;
+  padding: 3px;
+  line-height: 25px;
+  font-size: $font-size;
+}
+.el-table .header-cell {
+  background: #EDF1F5;
+  color: #303133;
+  text-align: center;
+  padding: 3px;
+  line-height: 25px;
+  font-size: $font-size;
+}
+.el-table .table-cell .el-button--text {
+  padding: 0;
+}
