@@ -252,10 +252,8 @@ type ColumnList = {
   filterParams: Map<string, object>;
 };
 
-@Component({
-  name: 'TsVueTable'
-})
-export default class TsVueTable extends Vue {
+@Component
+export default class TsUniTable extends Vue {
   @Prop({
     required: true
   })

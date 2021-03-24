@@ -3,10 +3,10 @@ import 'element-ui/lib/theme-chalk/index.css'
 import Vue from 'vue'
 Vue.use(ElementUI, { size: 'small' })
 
-import TsVueTable from '@/TsVueTable'
+import TsUniTable from '@/TsUniTable'
 import './styles/common.scss'
 
-const components = [TsVueTable]
+const components = [TsUniTable]
 const install = function(Vue: any) {
   if ((install as any).installed) return
   components.map(component => Vue.component(component.name, component))
@@ -15,7 +15,7 @@ const install = function(Vue: any) {
 if (typeof window !== 'undefined' && window.Vue) {
   install(Vue)
 }
-export { install, TsVueTable }
+export { install, TsUniTable }
 export default {
   install,
   ...components

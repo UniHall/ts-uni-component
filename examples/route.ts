@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router'
 import Vue from 'vue'
 import HomePage from './docs/README.md'
-import TsVueTableDoc from './docs/TsVueTable.md'
+import TsUniTableDoc from './docs/TsUniTable.md'
 
 Vue.use(VueRouter)
 const routes = [
@@ -16,8 +16,8 @@ const routes = [
   },
   {
     path: '/ts-vue-component/component/ts-table',
-    component: TsVueTableDoc,
-    name: 'TsVueTableDoc'
+    component: TsUniTableDoc,
+    name: 'TsUniTableDoc'
   }
 ]
 const router = new VueRouter({

@@ -7,7 +7,7 @@
 您可以全局引入该组件库，亦可按需引入。具体使用方式请向下翻阅。
 :::
 ### 安装
-npm install vue-uni-component
+npm install ts-uni-component
 ### 全局引入
 ::: warning
 因为我们使用了element-ui中的组件，使用时需要同时引入element-ui.
@@ -16,9 +16,9 @@ npm install vue-uni-component
 ```
 import ElementUI from 'element-ui'
 Vue.use(ElementUI)
-import VueUniComponent from 'vue-uni-component'
-Vue.use(VueUniComponent)
-import 'vue-uni-component/lib/style/index.css'
+import TsUniComponent from 'ts-uni-component'
+Vue.use(TsUniComponent)
+import 'ts-uni-component/lib/style/index.css'
 ```
 
 
@@ -27,7 +27,7 @@ import 'vue-uni-component/lib/style/index.css'
 ``` 
 import ElementUI from 'element-ui'
 Vue.use(ElementUI)
-import { UniTable } from 'vue-uni-component'
-Vue.use(UniTable)
-import 'vue-uni-component/lib/style/index.css'
+import { TsUniTable } from 'ts-uni-component'
+Vue.use(TsUniTable)
+import 'ts-uni-component/lib/style/index.css'
 ```
