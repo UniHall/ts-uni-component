@@ -1,11 +1,11 @@
 export function filterDictNameByCode(
   dictCode,
   dictList,
-  codeProp = "code",
-  labelProp = "label"
+  codeProp = 'code',
+  labelProp = 'label'
 ) {
-  const res = dictList.find(item => item[codeProp] === dictCode);
-  return res ? res[labelProp] : dictCode;
+  const res = dictList.find(item => item[codeProp] === dictCode)
+  return res ? res[labelProp] : dictCode
 }
 /**
  * 将字符串格式化为千分符格式的字符串
@@ -13,40 +13,40 @@ export function filterDictNameByCode(
  * @param {Number} n 小数位数
  */
 export function formatMoneyStr(s, n) {
-  if (s === undefined || s === "" || s === null) {
-    return "-";
+  if (s === undefined || s === '' || s === null) {
+    return '-'
   }
-  n = n >= 0 && n <= 20 ? n : 2;
-  s = parseFloat((s + "").replace(/[^\d.-]/g, "")).toFixed(n) + "";
+  n = n >= 0 && n <= 20 ? n : 2
+  s = parseFloat((s + '').replace(/[^\d.-]/g, '')).toFixed(n) + ''
   const l = s
-    .split(".")[0]
-    .split("")
-    .reverse();
-  const [r] = s.split(".");
-  let i;
-  let t = "";
+    .split('.')[0]
+    .split('')
+    .reverse()
+  const [r] = s.split('.')
+  let i
+  let t = ''
   for (i = 0; i < l.length; i++) {
     t +=
       l[i] +
-      ((i + 1) % 3 === 0 && i + 1 !== l.length && l[i + 1] !== "-" ? "," : "");
+      ((i + 1) % 3 === 0 && i + 1 !== l.length && l[i + 1] !== '-' ? ',' : '')
   }
   return (
     t
-      .split("")
+      .split('')
       .reverse()
-      .join("") + (r ? "." + r : "")
-  );
+      .join('') + (r ? '.' + r : '')
+  )
 }
 
 export function parseChildTree(normalList, parentList, parentIdName) {
   if (normalList.length !== 0 && parentList.length !== 0) {
     for (let index = 0; index < parentList.length; index++) {
-      const parentElement = parentList[index];
+      const parentElement = parentList[index]
       for (let childIndex = 0; childIndex < normalList.length; childIndex++) {
-        const childElement = normalList[childIndex];
+        const childElement = normalList[childIndex]
         if (parentElement.id === childElement[parentIdName]) {
-          parentElement.children = parentElement.children || [];
-          parentElement.children.push(childElement);
+          parentElement.children = parentElement.children || []
+          parentElement.children.push(childElement)
         }
       }
       if (
@@ -54,7 +54,7 @@ export function parseChildTree(normalList, parentList, parentIdName) {
         parentElement.children &&
         parentElement.children.length > 0
       ) {
-        parseChildTree(normalList, parentElement.children, parentIdName);
+        parseChildTree(normalList, parentElement.children, parentIdName)
       }
     }
   }
@@ -67,15 +67,15 @@ export function parseChildTree(normalList, parentList, parentIdName) {
  * @param {Array<String>} rootCodeList 若想仅过滤出parentId为某些值的list则需要传此值
  */
 export function parseTreeData(normalList, parentIdName, rootCodeList) {
-  const treeData = [];
+  const treeData = []
   if (normalList.length > 0) {
     for (let index = 0; index < normalList.length; index++) {
-      const n = normalList[index];
+      const n = normalList[index]
       if (!n[parentIdName] || (rootCodeList && rootCodeList.includes(n.code))) {
-        treeData.push(n);
+        treeData.push(n)
       }
     }
-    parseChildTree(normalList, treeData, parentIdName);
+    parseChildTree(normalList, treeData, parentIdName)
   }
-  return treeData;
+  return treeData
 }
