@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ts-uni-table">
     <el-table
       border
       :style="tableStyle"
@@ -205,53 +205,7 @@
 <script lang="ts">
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator'
 import { filterDictNameByCode, formatMoneyStr } from '@/commonJs/common.js'
-type Pageable = {
-  page: number;
-  size: number;
-  total: number;
-};
-type KeyRow = {
-  key: string;
-  row: any;
-};
-type ElementTableCell = {
-  row: any;
-  column: any;
-  rowIndex: number;
-  columnIndex: number;
-};
-type ValueProp = {
-  value: Array<string> | string;
-  prop: string;
-};
-type Operation = {
-  type: string;
-  label: string;
-  key: string;
-  notShow:
-    | ValueProp
-    | Array<ValueProp | boolean | Function>
-    | boolean
-    | Function;
-  notShowJoinType: string;
-  buttonIcon: string;
-  trigger: string;
-  childOperations: Array<Operation>;
-};
-type ColumnList = {
-  prop: string;
-  label: string;
-  width: string | number;
-  headerAlign: string;
-  align: string;
-  type: string;
-  clickEvent: Function;
-  operations: Array<Operation>;
-  render: Function;
-  filter: Vue;
-  filterParams: Map<string, object>;
-};
-
+import { ColumnList, Pageable, KeyRow, ElementTableCell, Operation, ValueProp } from '@/commonJs/type/TableType'
 @Component
 export default class TsUniTable extends Vue {
   @Prop({
@@ -620,3 +574,62 @@ export default class TsUniTable extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+$font-size: 14px;
+.ts-uni-table /deep/ {
+
+  .common-table-cell {
+    padding: 3px;
+    line-height: 25px;
+    font-size: $font-size;
+  }
+  .common-header-cell {
+    background: #EDF1F5;
+    color: #303133;
+    padding: 3px;
+    line-height: 25px;
+    font-size: $font-size;
+  }
+
+  .table-cell {
+    text-align: center;
+    padding: 3px;
+    line-height: 25px;
+    font-size: $font-size;
+  }
+  .header-cell {
+    background: #EDF1F5;
+    color: #303133;
+    text-align: center;
+    padding: 3px;
+    line-height: 25px;
+    font-size: $font-size;
+  }
+  .table-cell .el-button--text {
+    padding: 0;
+  }
+  .el-pagination {
+    padding: 15px;
+    text-align: center;
+    background-color: #FFFFFF;
+  }
+  .el-pagination.is-background .btn-next,
+  .el-pagination.is-background .btn-prev,
+  .el-pagination.is-background .el-pager li {
+    background-color: #FFFFFF !important;
+  }
+  .el-pagination.is-background .el-pager li:not(.disabled).active {
+    background-color: #1891FF !important;
+    color: #FFF;
+  }
+  .el-pagination.is-background .el-pager li:not(.disabled).active {
+    border-radius: 4px;
+  }
+
+  /* 小分页select大小调整 */
+  .el-pagination__sizes .el-select--mini .el-input__inner {
+    height: 22px;
+    border-radius: 0 !important;
+  }
+}
+</style>
