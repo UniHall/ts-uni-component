@@ -4,3 +4,4 @@ declare module '*.vue' {
 }
 declare module '*.js'
 declare module '*.md'
+declare module 'lodash'

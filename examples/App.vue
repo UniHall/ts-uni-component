@@ -11,6 +11,8 @@
             <span slot="title">数据展示类</span>
             <el-menu-item index="/ts-vue-component/component/ts-table">table 表格</el-menu-item>
             <el-menu-item index="/ts-vue-component/component/ts-anchor">anchor 锚点</el-menu-item>
+            <el-menu-item index="/ts-vue-component/component/ts-drag">drag 拖拽组件</el-menu-item>
+            <el-menu-item index="/ts-vue-component/component/ts-drag-group">dragGroup 拖拽组组件</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       </el-menu>

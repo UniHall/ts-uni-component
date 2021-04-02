@@ -6,8 +6,10 @@ import './styles/common.scss'
 
 import TsUniTable from '@/TsUniTable'
 import TsUniAnchor from '@/TsUniAnchor'
+import TsUniDrag from '@/TsUniDrag'
+import TsUniDragGroup from '@/TsUniDragGroup'
 
-const components = [TsUniTable, TsUniAnchor]
+const components = [TsUniTable, TsUniAnchor, TsUniDrag, TsUniDragGroup]
 const install = function(Vue: any) {
   if ((install as any).installed) return
   components.map(component => Vue.component(component.name, component))
@@ -16,7 +18,7 @@ const install = function(Vue: any) {
 if (typeof window !== 'undefined' && window.Vue) {
   install(Vue)
 }
-export { install, TsUniTable, TsUniAnchor }
+export { install, TsUniTable, TsUniAnchor, TsUniDrag, TsUniDragGroup }
 export default {
   install,
   ...components
