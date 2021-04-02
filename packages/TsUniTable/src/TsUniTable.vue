@@ -334,9 +334,7 @@ export default class TsUniTable extends Vue {
       return
     }
     if ((this.$refs[prop + index] as Element[])[0]) {
-      this.disableToolTip =
-        (this.$refs[prop + index] as Element[])[0].scrollWidth ===
-        (this.$refs[prop + index] as Element[])[0].clientWidth
+      this.disableToolTip = (this.$refs[prop + index] as Element[])[0].scrollWidth === (this.$refs[prop + index] as Element[])[0].clientWidth
     }
   }
   // 点击表格单元格时触发函数
@@ -365,13 +363,7 @@ export default class TsUniTable extends Vue {
     const cellName = 'common-table-cell'
     if (this.cellClassName) {
       return cellName + typeof this.cellClassName === 'function'
-        ? '' +
-            (this.cellClassName as Function)({
-              row,
-              column,
-              rowIndex,
-              columnIndex
-            })
+        ? '' + (this.cellClassName as Function)({ row, column, rowIndex, columnIndex })
         : '' + this.cellClassName
     }
     return cellName
@@ -386,13 +378,7 @@ export default class TsUniTable extends Vue {
     const headerClass = 'common-table-cell common-header-cell'
     if (this.headerCellClassName) {
       return headerClass + typeof this.headerCellClassName === 'function'
-        ? '' +
-            (this.headerCellClassName as Function)({
-              row,
-              column,
-              rowIndex,
-              columnIndex
-            })
+        ? '' + (this.headerCellClassName as Function)({ row, column, rowIndex, columnIndex })
         : '' + this.headerCellClassName
     }
     return headerClass
@@ -498,9 +484,7 @@ export default class TsUniTable extends Vue {
   }
   // 校验按钮是否展示
   private checkShowButton(operation: Operation, row: any) {
-    const notShowType = Object.prototype.toString
-      .call(operation.notShow)
-      .slice(8, -1)
+    const notShowType = Object.prototype.toString.call(operation.notShow).slice(8, -1)
     if (notShowType === 'Boolean') {
       return !operation.notShow
     }
@@ -528,9 +512,7 @@ export default class TsUniTable extends Vue {
             show = show === null ? !filter : show || !filter
           } else if (filterType === 'Function') {
             show =
-              show === null
-                ? !(filter as Function)()
-                : show || !(filter as Function)()
+              show === null ? !(filter as Function)() : show || !(filter as Function)()
           } else {
             if (
               (filter as ValueProp).value.includes(
@@ -548,9 +530,7 @@ export default class TsUniTable extends Vue {
     } else {
       (operation.notShow as Array<ValueProp | boolean | Function>).forEach(
         filter => {
-          const filterType = Object.prototype.toString
-            .call(filter)
-            .slice(8, -1)
+          const filterType = Object.prototype.toString.call(filter).slice(8, -1)
           if (filterType === 'Boolean') {
             show = show === null ? !filter : show && !filter
           } else if (filterType === 'Function') {
